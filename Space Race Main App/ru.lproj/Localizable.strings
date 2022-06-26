@@ -1,0 +1,24 @@
+/* 
+  Localizable.strings
+  Space Race Main App
+
+  Created by Shemets on 26.06.22.
+  
+*/
+
+// Start Screen
+"label.game.name" = "Бесконечные гонка";
+
+// Settings Screen
+"title.description" = "Выбери свой шаттл и скнин";
+"title.easy" = "Легкий";
+"title.medium" = "Средний";
+"title.hard" = "Про";
+"title.save" = "Сохранить";
+
+// Records Screen
+"title.rating" = "Рейтинг";
+"title.back" = "Назад";
+"title.date" = "Дата:";
+"title.scores" = "Очки:";
+"title.evaded" = "Уклонений:";

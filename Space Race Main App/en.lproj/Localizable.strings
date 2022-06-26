@@ -1,0 +1,23 @@
+/* 
+  Localizable.strings
+  Space Race Main App
+
+  Created by Shemets on 26.06.22.
+  
+*/
+// Start Screen
+"label.game.name" = "Infinity race";
+
+// Settings Screen
+"title.description" = "Choose your shuttle and skins";
+"title.easy" = "Easy";
+"tilte.medium" = "Medium";
+"title.hard" = "Hard";
+"title.save" = "Save";
+
+// Records Screen
+"title.rating" = "Rating";
+"title.back" = "Back";
+"title.date" = "Date:";
+"title.scores" = "Score:";
+"title.evaded" = "Evaded:";
