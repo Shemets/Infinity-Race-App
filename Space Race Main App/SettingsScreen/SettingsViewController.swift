@@ -254,22 +254,22 @@ class SettingsViewController: UIViewController {
         selectBombView.alpha = 0
         selectBombView.layer.cornerRadius = 10
          
-        let bombButtonWidth: CGFloat = selectBombView.bounds.width / 4
-        let bombButtonHeight: CGFloat = selectBombView.bounds.height / 1.1
+        let bombButtonWidth: CGFloat = selectBombView.bounds.width / 3.8
+        let bombButtonHeight: CGFloat = selectBombView.bounds.height / 1.2
         bomb1Button.frame = CGRect(x: selectBombView.bounds.minX + bombButtonWidth / 6,
                                    y: selectBombView.bounds.midY - bombButtonHeight / 2,
                                    width: bombButtonWidth,
                                    height: bombButtonHeight)
         bomb1Button.layer.cornerRadius = 10
         bomb1Button.backgroundColor = .clear
-        bomb1Button.setImage(UIImage(named: "bomb1"), for: .normal)
+        bomb1Button.setImage(UIImage(named: "bombDontActive1"), for: .normal)
         bomb1Button.addTarget(self, action: #selector(bomb1ButtonClicked), for: .touchUpInside)
         selectBombView.addSubview(bomb1Button)
         
         bomb2Button.frame = bomb1Button.frame.offsetBy(dx: bombButtonWidth + bombViewWidth / 15, dy: 0)
         bomb2Button.layer.cornerRadius = 10
         bomb2Button.backgroundColor = .clear
-        bomb2Button.setImage(UIImage(named: "bomb2"), for: .normal)
+        bomb2Button.setImage(UIImage(named: "bombDontActive2"), for: .normal)
         bomb2Button.addTarget(self, action: #selector(bomb2ButtonClicked), for: .touchUpInside)
         selectBombView.addSubview(bomb2Button)
         
@@ -277,7 +277,7 @@ class SettingsViewController: UIViewController {
         bomb3Button.frame = bomb2Button.frame.offsetBy(dx: bombButtonWidth + bombViewWidth / 15, dy: 0)
         bomb3Button.layer.cornerRadius = 10
         bomb3Button.backgroundColor = .clear
-        bomb3Button.setImage(UIImage(named: "bomb3"), for: .normal)
+        bomb3Button.setImage(UIImage(named: "bombDontActive3"), for: .normal)
         bomb3Button.addTarget(self, action: #selector(bomb3ButtonClicked), for: .touchUpInside)
         selectBombView.addSubview(bomb3Button)
         

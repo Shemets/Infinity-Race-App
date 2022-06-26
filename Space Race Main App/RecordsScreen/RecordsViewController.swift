@@ -14,6 +14,7 @@ class RecordsViewController: UIViewController {
     private var ratingImageView = UIImageView()
     private var ratingLabel = UILabel()
     private var tableView: UITableView!
+    private var dataArray: [GameResults] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -94,7 +95,7 @@ class RecordsViewController: UIViewController {
                                  y: -view.bounds.height,
                                  width: tableWidth,
                                  height: tableHeight)
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(CustomTableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.layer.cornerRadius = 5
         tableView.backgroundColor = UIColor(hex: 0x4169E1)
         tableView.delegate = self
@@ -112,20 +113,20 @@ class RecordsViewController: UIViewController {
 extension RecordsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let dataArray = ResultsManager.loadData() else {
-            return 0
+            return 0 
         }
+        self.dataArray = dataArray
         return dataArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomTableViewCell
         cell.backgroundColor = UIColor(hex: 0x4682B4)
-        guard let dataArray = ResultsManager.loadData() else {
-            return UITableViewCell()
-        }
+
         let currentGameResult = dataArray[indexPath.row]
-        cell.textLabel?.text = "Date: \(currentGameResult.date)"
-        cell.textLabel?.font = UIFont(name: "Orbitron", size: 20)
+        cell.dateLabel.text = "Date: \(currentGameResult.date)"
+        cell.scoreLabel.text = "Score: \(currentGameResult.scores)"
+        cell.evadedLabel.text = "Evaded: \(currentGameResult.evaded)"
         return cell
     }
     
@@ -134,4 +135,8 @@ extension RecordsViewController: UITableViewDelegate, UITableViewDataSource {
         return height
     }
     
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        let height: CGFloat = 80
+        return height
+    }
 }

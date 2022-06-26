@@ -9,7 +9,7 @@ import UIKit
 import QuartzCore
 
 class GameViewController: UIViewController {
-    
+    var recordsView = RecordsViewController()
     private var spaceBackgroundImageView1 = UIImageView()
     private var spaceBackgroundImageView2 = UIImageView()
     private var shuttleImageView = UIImageView()
@@ -21,7 +21,10 @@ class GameViewController: UIViewController {
     private var bombImageView5 = UIImageView()
     private var gameOverImageView = UIImageView()
     private var gameOverLabel = UILabel()
-    private var evoded = 0
+    private var evaded = 0
+    private var currentDate: String = ""
+    private var date = Date()
+    private var formatter = DateFormatter()
     
     var difficulty = Difficulty.easy
     var difficultyKey = "speedKey"
@@ -44,6 +47,7 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.hidesBackButton = true
+        setUpFormatter()
         setupBackground()
         animateBackground()
         setupTimeResultLabel()
@@ -63,6 +67,15 @@ class GameViewController: UIViewController {
         setupBombAnimate5()
         checkObstracle()
     }
+   
+    private func setUpFormatter() {
+            formatter.setLocalizedDateFormatFromTemplate("MMM d, yyyy")
+            //formatter.dateFormat = "MMM d, yyyy"
+        formatter.locale = Locale(identifier: "en_US")
+            formatter.timeZone = TimeZone(secondsFromGMT: 0)
+            //currentDate = formatter.string(from: date as Date)
+            //print(formatter.string(from: Date()))
+        }
     
     private func setupUserDefaults() {
         let difficultyValue = UserDefaults.standard.double(forKey: difficultyKey)
@@ -200,7 +213,7 @@ class GameViewController: UIViewController {
     
     private func setupBombImageView1() {
         let bombWidth: CGFloat = view.bounds.width / 9
-        let bombHeight: CGFloat = view.bounds.width / 4
+        let bombHeight: CGFloat = view.bounds.width / 6
         bombImageView1.frame = CGRect(x: .random(in: bombWidth...view.bounds.width - bombWidth),
                                       y: -bombHeight * 3,
                                       width: bombWidth,
@@ -212,7 +225,7 @@ class GameViewController: UIViewController {
     
     private func setupBombImageView2() {
         let bombWidth: CGFloat = view.bounds.width / 9
-        let bombHeight: CGFloat = view.bounds.width / 4
+        let bombHeight: CGFloat = view.bounds.width / 6
         bombImageView2.frame = CGRect(x: .random(in: bombWidth...view.bounds.width - bombWidth),
                                       y: -bombWidth * 3,
                                       width: bombWidth,
@@ -225,7 +238,7 @@ class GameViewController: UIViewController {
     
     private func setupBombImageView3() {
         let bombWidth: CGFloat = view.bounds.width / 9
-        let bombHeight: CGFloat = view.bounds.width / 4
+        let bombHeight: CGFloat = view.bounds.width / 6
         bombImageView3.frame = CGRect(x: .random(in: bombWidth...view.bounds.width - bombWidth),
                                       y: -bombHeight * 3,
                                       width: bombWidth,
@@ -237,7 +250,7 @@ class GameViewController: UIViewController {
     
     private func setupBombImageView4() {
         let bombWidth: CGFloat = view.bounds.width / 9
-        let bombHeight: CGFloat = view.bounds.width / 4
+        let bombHeight: CGFloat = view.bounds.width / 6
         bombImageView4.frame = CGRect(x: .random(in: bombWidth...view.bounds.width - bombWidth),
                                       y: -bombHeight * 3,
                                       width: bombWidth,
@@ -249,7 +262,7 @@ class GameViewController: UIViewController {
     
     private func setupBombImageView5() {
         let bombWidth: CGFloat = view.bounds.width / 9
-        let bombHeight: CGFloat = view.bounds.width / 4
+        let bombHeight: CGFloat = view.bounds.width / 6
         bombImageView5.frame = CGRect(x: .random(in: bombWidth...view.bounds.width - bombWidth),
                                       y: -bombHeight * 3,
                                       width: bombWidth,
@@ -265,8 +278,8 @@ class GameViewController: UIViewController {
             self.bombImageView1.frame = self.bombImageView1.frame.offsetBy(dx: 0, dy: self.view.bounds.height + self.view.bounds.height / 2)
         } completion: { _ in
             self.setupBombAnimate1()
-            self.evoded += 1
-            self.bombEvadedLabel.text = "Evaded: \(self.evoded)"
+            self.evaded += 1
+            self.bombEvadedLabel.text = "Evaded: \(self.evaded)"
         }
     }
     
@@ -276,41 +289,41 @@ class GameViewController: UIViewController {
             self.bombImageView2.frame = self.bombImageView2.frame.offsetBy(dx: 0, dy: self.view.bounds.height + self.view.bounds.height / 2)
         } completion: { _ in
             self.setupBombAnimate2()
-            self.evoded += 1
-            self.bombEvadedLabel.text = "Evaded: \(self.evoded)"
+            self.evaded += 1
+            self.bombEvadedLabel.text = "Evaded: \(self.evaded)"
         }
     }
     
     private func setupBombAnimate3() {
         setupBombImageView3()
-        UIView.animate(withDuration: Double(difficulty.rawValue), delay: 2, options: []) {
+        UIView.animate(withDuration: Double(difficulty.rawValue), delay: 1.5, options: []) {
             self.bombImageView3.frame = self.bombImageView3.frame.offsetBy(dx: 0, dy: self.view.bounds.height + self.view.bounds.height / 2)
         } completion: { _ in
             self.setupBombImageView3()
-            self.evoded += 1
-            self.bombEvadedLabel.text = "Evaded: \(self.evoded)"
+            self.evaded += 1
+            self.bombEvadedLabel.text = "Evaded: \(self.evaded)"
         }
     }
     
     private func setupBombAnimate4() {
         setupBombImageView4()
-        UIView.animate(withDuration: Double(difficulty.rawValue), delay: 3.33, options: []) {
+        UIView.animate(withDuration: Double(difficulty.rawValue), delay: 2.11, options: []) {
             self.bombImageView4.frame = self.bombImageView4.frame.offsetBy(dx: 0, dy: self.view.bounds.height + self.view.bounds.height / 2)
         } completion: { _ in
             self.setupBombAnimate4()
-            self.evoded += 1
-            self.bombEvadedLabel.text = "Evaded: \(self.evoded)"
+            self.evaded += 1
+            self.bombEvadedLabel.text = "Evaded: \(self.evaded)"
         }
     }
     
     private func setupBombAnimate5() {
        setupBombImageView5()
-        UIView.animate(withDuration: Double(difficulty.rawValue), delay: 3.66 , options: []) {
+        UIView.animate(withDuration: Double(difficulty.rawValue), delay: 2.66 , options: []) {
             self.bombImageView5.frame = self.bombImageView5.frame.offsetBy(dx: 0, dy: self.view.bounds.height + self.view.bounds.height / 2)
         } completion: { _ in
             self.setupBombAnimate5()
-            self.evoded += 1
-            self.bombEvadedLabel.text = "Evaded: \(self.evoded)"
+            self.evaded += 1
+            self.bombEvadedLabel.text = "Evaded: \(self.evaded)"
         }
     }
     
@@ -406,7 +419,12 @@ class GameViewController: UIViewController {
                 self.gameOverImageView.addSubview(self.bombEvadedLabel)
                 self.gameOverImageView.addSubview(self.timeResultLabel)
                 
-                ResultsManager.saveResults(result: GameResults(date: Date()))
+                print()
+                ResultsManager.saveResults(result: GameResults(
+                    date: self.formatter.string(from: Date()),
+                    scores: Int(self.scoreTime * 10 ),
+                    evaded: self.evaded))
+                 
             }
         
             backToStartTimer = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(backToStart), userInfo: nil, repeats: true)
