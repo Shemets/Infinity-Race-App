@@ -70,11 +70,8 @@ class GameViewController: UIViewController {
    
     private func setUpFormatter() {
             formatter.setLocalizedDateFormatFromTemplate("MMM d, yyyy")
-            //formatter.dateFormat = "MMM d, yyyy"
-        formatter.locale = Locale(identifier: "en_US")
+            formatter.locale = Locale(identifier: "en_US")
             formatter.timeZone = TimeZone(secondsFromGMT: 0)
-            //currentDate = formatter.string(from: date as Date)
-            //print(formatter.string(from: Date()))
         }
     
     private func setupUserDefaults() {
@@ -175,7 +172,7 @@ class GameViewController: UIViewController {
                                        y: view.bounds.minY + timeResultHeight / 2,
                                        width: timeResultWidth,
                                        height: timeResultHeight)
-        timeResultLabel.text = "Score: 0"
+        timeResultLabel.text = "score: 0"
         timeResultLabel.textAlignment = .center
         timeResultLabel.font = UIFont(name: "Orbitron", size: 25)
         timeResultLabel.textColor = .white
@@ -404,7 +401,7 @@ class GameViewController: UIViewController {
             timerIntersectsView.invalidate()
             pointTimer.invalidate()
             setupGameOverLabel()
-            UIView.animate(withDuration: 1.5, delay: 0.5) {
+            UIView.animate(withDuration: 0.5, delay: 0.5) {
                 self.timeResultLabel.frame = CGRect(x: self.gameOverLabel.bounds.midX - timeResultWidth / 2.3,
                                                     y: self.gameOverLabel.bounds.minY + timeResultHeight,
                                                     width: timeResultWidth,
@@ -419,7 +416,6 @@ class GameViewController: UIViewController {
                 self.gameOverImageView.addSubview(self.bombEvadedLabel)
                 self.gameOverImageView.addSubview(self.timeResultLabel)
                 
-                print()
                 ResultsManager.saveResults(result: GameResults(
                     date: self.formatter.string(from: Date()),
                     scores: Int(self.scoreTime * 10 ),

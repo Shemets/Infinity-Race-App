@@ -54,7 +54,7 @@ class RecordsViewController: UIViewController {
                                    y: ratingImageView.bounds.midY - labelHeight / 1.6,
                                    width: labelWidth,
                                    height: labelHeight)
-        ratingLabel.text = "Rating"
+        ratingLabel.text = NSLocalizedString("title.rating", comment: "")
         ratingLabel.textAlignment = .center
         ratingLabel.font = UIFont(name: "Orbitron", size: 70)
         ratingLabel.backgroundColor = .clear
@@ -72,7 +72,7 @@ class RecordsViewController: UIViewController {
                                   width: buttonWidth,
                                   height: buttonHeight)
         backButton.titleLabel?.font = UIFont(name: "Orbitron", size: 25)
-        backButton.setTitle("Back", for: .normal)
+        backButton.setTitle(NSLocalizedString("title.back", comment: ""), for: .normal)
         backButton.layer.cornerRadius = 10
         backButton.backgroundColor = UIColor(hex: 0x7B68EE)
         backButton.addTarget(self, action: #selector(backButtonCliked), for: .touchUpInside)
@@ -124,9 +124,9 @@ extension RecordsViewController: UITableViewDelegate, UITableViewDataSource {
         cell.backgroundColor = UIColor(hex: 0x4682B4)
 
         let currentGameResult = dataArray[indexPath.row]
-        cell.dateLabel.text = "Date: \(currentGameResult.date)"
-        cell.scoreLabel.text = "Score: \(currentGameResult.scores)"
-        cell.evadedLabel.text = "Evaded: \(currentGameResult.evaded)"
+        cell.dateLabel.text = NSLocalizedString("title.date", comment: "") + " \(currentGameResult.date)"
+        cell.scoreLabel.text = NSLocalizedString("title.scores", comment: "") + " \(currentGameResult.scores)"
+        cell.evadedLabel.text = NSLocalizedString("title.evaded", comment: "") + " \(currentGameResult.evaded)"
         return cell
     }
     

@@ -94,7 +94,7 @@ class SettingsViewController: UIViewController {
                                         height: labelHeight)
         descriptionLabel.lineBreakMode = .byWordWrapping
         descriptionLabel.numberOfLines = 0
-        descriptionLabel.text = "Choose your shuttle and skins"
+        descriptionLabel.text = NSLocalizedString("title.description", comment: "")
         descriptionLabel.textColor = UIColor(hex: 0x7B68EE)
         descriptionLabel.textAlignment = .center
         descriptionLabel.font = UIFont(name: "Orbitron", size: 35)
@@ -127,7 +127,7 @@ class SettingsViewController: UIViewController {
                                   width: buttonWidth,
                                   height: buttonHeight)
         easyButton.titleLabel?.font = UIFont(name: "Orbitron", size: 20)
-        easyButton.setTitle("Easy", for: .normal)
+        easyButton.setTitle(NSLocalizedString("title.easy", comment: ""), for: .normal)
         easyButton.backgroundColor = UIColor(hex: 0x9370DB)
         easyButton.layer.cornerRadius = 10
         easyButton.addTarget(self, action: #selector(easyButtonCliced), for: .touchUpInside)
@@ -139,7 +139,7 @@ class SettingsViewController: UIViewController {
         
         mediumButton.frame = easyButton.frame.offsetBy(dx: buttonWidth + buttonWidth / 9, dy: 0)
         mediumButton.titleLabel?.font = UIFont(name: "Orbitron", size: 20)
-        mediumButton.setTitle("Medium", for: .normal)
+        mediumButton.setTitle(NSLocalizedString("title.medium", comment: ""), for: .normal)
         mediumButton.layer.cornerRadius = 10
         mediumButton.backgroundColor = UIColor(hex: 0x9370DB)
         mediumButton.addTarget(self, action: #selector(mediumButtonCliked), for: .touchUpInside)
@@ -151,7 +151,7 @@ class SettingsViewController: UIViewController {
         
         hardButton.frame = mediumButton.frame.offsetBy(dx: buttonWidth + buttonWidth / 9, dy: 0)
         hardButton.titleLabel?.font = UIFont(name: "Orbitron", size: 20)
-        hardButton.setTitle("Hard", for: .normal)
+        hardButton.setTitle(NSLocalizedString("title.hard", comment: ""), for: .normal)
         hardButton.layer.cornerRadius = 10
         hardButton.backgroundColor = UIColor(hex: 0x9370DB)
         hardButton.addTarget(self, action: #selector(hardButtonClicked), for: .touchUpInside)
@@ -440,7 +440,7 @@ class SettingsViewController: UIViewController {
                                   width: buttonWidth,
                                   height: buttonHeight)
         backButton.titleLabel?.font = UIFont(name: "Orbitron", size: 25)
-        backButton.setTitle("Save", for: .normal)
+        backButton.setTitle(NSLocalizedString("title.save", comment: ""), for: .normal)
         backButton.layer.cornerRadius = 10
         backButton.backgroundColor = UIColor(hex: 0x7B68EE)
         backButton.addTarget(self, action: #selector(backButtonCliked), for: .touchUpInside)

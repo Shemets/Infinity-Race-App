@@ -81,7 +81,7 @@ class ViewController: UIViewController {
         gameNameLabel.lineBreakMode = .byWordWrapping
         gameNameLabel.numberOfLines = 0
         gameNameLabel.font = UIFont(name: "Orbitron", size: 58)
-        gameNameLabel.text = "Infinity Race"
+        gameNameLabel.text = NSLocalizedString("label.game.name", comment: "")
         gameNameLabel.textColor = UIColor(hex: 0xE6E6FA)
         gameNameLabel.textAlignment = .center
         gameNameLabel.alpha = 0
