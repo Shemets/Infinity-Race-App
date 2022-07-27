@@ -29,6 +29,7 @@
 		06EE9F1D2861F74100169479 /* ResultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EE9F1C2861F74100169479 /* ResultManager.swift */; };
 		06EE9F1F2861F76800169479 /* GameResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EE9F1E2861F76800169479 /* GameResult.swift */; };
 		06EE9F21286359D300169479 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EE9F20286359D200169479 /* CustomTableViewCell.swift */; };
+		06EE9F262868672900169479 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 06EE9F282868672900169479 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,10 @@
 		06EE9F1C2861F74100169479 /* ResultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultManager.swift; sourceTree = "<group>"; };
 		06EE9F1E2861F76800169479 /* GameResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameResult.swift; sourceTree = "<group>"; };
 		06EE9F20286359D200169479 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		06EE9F24286866D400169479 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
+		06EE9F25286866D400169479 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		06EE9F272868672900169479 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		06EE9F292868672B00169479 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +167,7 @@
 		06B6EC19284A117C001FB85B /* Space Race Main App */ = {
 			isa = PBXGroup;
 			children = (
+				06EE9F282868672900169479 /* Localizable.strings */,
 				06B6EC1A284A117C001FB85B /* AppDelegate.swift */,
 				06B6EC1C284A117C001FB85B /* SceneDelegate.swift */,
 				0665DADF284E100100A33A50 /* StartScreen */,
@@ -221,6 +227,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 06B6EC0E284A117C001FB85B;
 			productRefGroup = 06B6EC18284A117C001FB85B /* Products */;
@@ -242,6 +249,7 @@
 				06B6EC27284A117C001FB85B /* LaunchScreen.storyboard in Resources */,
 				0665DAEB284E160B00A33A50 /* BuruhNgepath.otf in Resources */,
 				0665DAF0284E25F400A33A50 /* GameViewController.storyboard in Resources */,
+				06EE9F262868672900169479 /* Localizable.strings in Resources */,
 				06B6EC24284A117C001FB85B /* Assets.xcassets in Resources */,
 				062DE769285C838D009DA833 /* RecordsViewController.storyboard in Resources */,
 				0665DAF2284E36AE00A33A50 /* Orbitron.ttf in Resources */,
@@ -279,6 +287,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				06B6EC21284A117C001FB85B /* Base */,
+				06EE9F24286866D400169479 /* ru */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -287,8 +296,18 @@
 			isa = PBXVariantGroup;
 			children = (
 				06B6EC26284A117C001FB85B /* Base */,
+				06EE9F25286866D400169479 /* ru */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		06EE9F282868672900169479 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				06EE9F272868672900169479 /* ru */,
+				06EE9F292868672B00169479 /* en */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -298,6 +317,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -358,6 +378,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";

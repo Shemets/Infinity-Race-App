@@ -8,5 +8,8 @@
 import Foundation
 
 struct GameResults: Codable {
-    var date = Date()
+    var date: String
+    var scores: Int
+    var evaded: Int
 }
+

@@ -94,7 +94,7 @@ class SettingsViewController: UIViewController {
                                         height: labelHeight)
         descriptionLabel.lineBreakMode = .byWordWrapping
         descriptionLabel.numberOfLines = 0
-        descriptionLabel.text = "Choose your shuttle and skins"
+        descriptionLabel.text = NSLocalizedString("title.description", comment: "")
         descriptionLabel.textColor = UIColor(hex: 0x7B68EE)
         descriptionLabel.textAlignment = .center
         descriptionLabel.font = UIFont(name: "Orbitron", size: 35)
@@ -127,7 +127,7 @@ class SettingsViewController: UIViewController {
                                   width: buttonWidth,
                                   height: buttonHeight)
         easyButton.titleLabel?.font = UIFont(name: "Orbitron", size: 20)
-        easyButton.setTitle("Easy", for: .normal)
+        easyButton.setTitle(NSLocalizedString("title.easy", comment: ""), for: .normal)
         easyButton.backgroundColor = UIColor(hex: 0x9370DB)
         easyButton.layer.cornerRadius = 10
         easyButton.addTarget(self, action: #selector(easyButtonCliced), for: .touchUpInside)
@@ -139,7 +139,7 @@ class SettingsViewController: UIViewController {
         
         mediumButton.frame = easyButton.frame.offsetBy(dx: buttonWidth + buttonWidth / 9, dy: 0)
         mediumButton.titleLabel?.font = UIFont(name: "Orbitron", size: 20)
-        mediumButton.setTitle("Medium", for: .normal)
+        mediumButton.setTitle(NSLocalizedString("title.medium", comment: ""), for: .normal)
         mediumButton.layer.cornerRadius = 10
         mediumButton.backgroundColor = UIColor(hex: 0x9370DB)
         mediumButton.addTarget(self, action: #selector(mediumButtonCliked), for: .touchUpInside)
@@ -151,7 +151,7 @@ class SettingsViewController: UIViewController {
         
         hardButton.frame = mediumButton.frame.offsetBy(dx: buttonWidth + buttonWidth / 9, dy: 0)
         hardButton.titleLabel?.font = UIFont(name: "Orbitron", size: 20)
-        hardButton.setTitle("Hard", for: .normal)
+        hardButton.setTitle(NSLocalizedString("title.hard", comment: ""), for: .normal)
         hardButton.layer.cornerRadius = 10
         hardButton.backgroundColor = UIColor(hex: 0x9370DB)
         hardButton.addTarget(self, action: #selector(hardButtonClicked), for: .touchUpInside)
@@ -254,22 +254,22 @@ class SettingsViewController: UIViewController {
         selectBombView.alpha = 0
         selectBombView.layer.cornerRadius = 10
          
-        let bombButtonWidth: CGFloat = selectBombView.bounds.width / 4
-        let bombButtonHeight: CGFloat = selectBombView.bounds.height / 1.1
+        let bombButtonWidth: CGFloat = selectBombView.bounds.width / 3.8
+        let bombButtonHeight: CGFloat = selectBombView.bounds.height / 1.2
         bomb1Button.frame = CGRect(x: selectBombView.bounds.minX + bombButtonWidth / 6,
                                    y: selectBombView.bounds.midY - bombButtonHeight / 2,
                                    width: bombButtonWidth,
                                    height: bombButtonHeight)
         bomb1Button.layer.cornerRadius = 10
         bomb1Button.backgroundColor = .clear
-        bomb1Button.setImage(UIImage(named: "bomb1"), for: .normal)
+        bomb1Button.setImage(UIImage(named: "bombDontActive1"), for: .normal)
         bomb1Button.addTarget(self, action: #selector(bomb1ButtonClicked), for: .touchUpInside)
         selectBombView.addSubview(bomb1Button)
         
         bomb2Button.frame = bomb1Button.frame.offsetBy(dx: bombButtonWidth + bombViewWidth / 15, dy: 0)
         bomb2Button.layer.cornerRadius = 10
         bomb2Button.backgroundColor = .clear
-        bomb2Button.setImage(UIImage(named: "bomb2"), for: .normal)
+        bomb2Button.setImage(UIImage(named: "bombDontActive2"), for: .normal)
         bomb2Button.addTarget(self, action: #selector(bomb2ButtonClicked), for: .touchUpInside)
         selectBombView.addSubview(bomb2Button)
         
@@ -277,7 +277,7 @@ class SettingsViewController: UIViewController {
         bomb3Button.frame = bomb2Button.frame.offsetBy(dx: bombButtonWidth + bombViewWidth / 15, dy: 0)
         bomb3Button.layer.cornerRadius = 10
         bomb3Button.backgroundColor = .clear
-        bomb3Button.setImage(UIImage(named: "bomb3"), for: .normal)
+        bomb3Button.setImage(UIImage(named: "bombDontActive3"), for: .normal)
         bomb3Button.addTarget(self, action: #selector(bomb3ButtonClicked), for: .touchUpInside)
         selectBombView.addSubview(bomb3Button)
         
@@ -440,7 +440,7 @@ class SettingsViewController: UIViewController {
                                   width: buttonWidth,
                                   height: buttonHeight)
         backButton.titleLabel?.font = UIFont(name: "Orbitron", size: 25)
-        backButton.setTitle("Save", for: .normal)
+        backButton.setTitle(NSLocalizedString("title.save", comment: ""), for: .normal)
         backButton.layer.cornerRadius = 10
         backButton.backgroundColor = UIColor(hex: 0x7B68EE)
         backButton.addTarget(self, action: #selector(backButtonCliked), for: .touchUpInside)
